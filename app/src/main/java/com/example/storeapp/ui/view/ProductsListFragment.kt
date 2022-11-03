@@ -13,6 +13,7 @@ import com.example.storeapp.base.ViewModelFactory
 import com.example.storeapp.data.remote.RemoteDataSourceImp
 import com.example.storeapp.data.remote.RepositoryImp
 import com.example.storeapp.databinding.FragmentProductsListBinding
+import com.example.storeapp.model.ProductList
 
 
 class ProductsListFragment : BaseFragment() {
@@ -36,11 +37,16 @@ class ProductsListFragment : BaseFragment() {
 
         productViewModel.getProductList()
 
-        productViewModel.getProducts().observe(viewLifecycleOwner,{
-            Log.d("data", it.toString())
+        productViewModel.getProducts().observe(viewLifecycleOwner) {
+            if (it != null)
+                initRecyclerView(it)
 
-        })
+        }
         return binding.root
+    }
+
+    private fun initRecyclerView(list: ProductList) {
+
     }
 
 }
