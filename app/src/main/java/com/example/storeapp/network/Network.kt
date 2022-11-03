@@ -16,7 +16,7 @@ object Network {
         .setLenient()
         .create()
 
-    private fun getRetrofit(): Retrofit {
+     fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -37,7 +37,7 @@ object Network {
 
         httpClient.connectTimeout(7000, TimeUnit.SECONDS)
         httpClient.readTimeout(7000, TimeUnit.SECONDS)
-        httpClient.writeTimeout(7000, TimeUnit.SECONDS);
+        httpClient.writeTimeout(7000, TimeUnit.SECONDS)
         return httpClient.build()
     }
 }

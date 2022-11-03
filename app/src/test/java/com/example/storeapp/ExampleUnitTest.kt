@@ -1,8 +1,9 @@
 package com.example.storeapp
 
+import com.example.storeapp.network.Network
 import org.junit.Test
 
-import org.junit.Assert.*
+import retrofit2.Retrofit
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -11,7 +12,10 @@ import org.junit.Assert.*
  */
 class ExampleUnitTest {
     @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+    fun testRetrofitInstance() {
+        //Get an instance of Retrofit
+        val instance: Retrofit = Network.getRetrofit()
+        //Assert that, Retrofit's base url matches to our BASE_URL
+        assert(instance.baseUrl().url().toString() == "https://fakestoreapi.com/")
     }
 }
