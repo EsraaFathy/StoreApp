@@ -1,5 +1,6 @@
 package com.example.storeapp.ui.view
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,9 +10,10 @@ import com.example.storeapp.R
 import com.example.storeapp.databinding.ProductItemBinding
 import com.example.storeapp.model.ProductList
 
-class ProductsAdapter(var productList: ProductList,val itemClick: ItemClick) : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
-    class ViewHolder(val binding: ProductItemBinding,val context : Context) : RecyclerView.ViewHolder(binding.root) {
+class ProductsAdapter(private var productList: ProductList, private val itemClick: ItemClick) : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
+    class ViewHolder(private val binding: ProductItemBinding, private val context : Context) : RecyclerView.ViewHolder(binding.root) {
 
+        @SuppressLint("SetTextI18n")
         fun bindData(product : ProductList.ProductListItem, itemClick: ItemClick) {
             Glide.with(context)
                 .load(product.image)

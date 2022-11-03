@@ -1,12 +1,15 @@
 package com.example.storeapp.base
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.storeapp.R
 
 open class BaseActivity : AppCompatActivity() {
-    public open fun replaceFragment(fragment: Fragment,bundle: Bundle? =null) {
+    var currentFragment : BaseFragment? = null
+    var currentActivity : Activity? =null
+
+    open fun replaceFragment(fragment: Fragment,bundle: Bundle? =null) {
 
     }
 }

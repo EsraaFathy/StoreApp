@@ -7,4 +7,6 @@
     <string name="eg"> EG</string>
     <string name="loading">Loading ...</string>
     <string name="description">Description</string>
+    <string name="icon">icon</string>
+    <string name="_150">150</string>
 </resources>

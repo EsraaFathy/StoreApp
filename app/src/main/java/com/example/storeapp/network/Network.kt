@@ -1,10 +1,8 @@
 package com.example.storeapp.network
 
-import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.concurrent.TimeUnit
 
 
@@ -12,11 +10,8 @@ import java.util.concurrent.TimeUnit
 
 object Network {
     private const val BASE_URL ="https://fakestoreapi.com/"
-    var gson = GsonBuilder()
-        .setLenient()
-        .create()
 
-     fun getRetrofit(): Retrofit {
+    fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())

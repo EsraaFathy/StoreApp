@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,7 +15,8 @@
             android:src="@drawable/online_shopping"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/icon" />
 
         <TextView
             android:id="@+id/product_title"
@@ -52,7 +52,7 @@
             app:layout_constraintTop_toBottomOf="@id/product_title" />
 
         <TextView
-            android:id="@+id/product_discription"
+            android:id="@+id/product_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_to"
@@ -74,7 +74,7 @@
             android:progressDrawable="@drawable/ratingbar_full"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/product_discription" />
+            app:layout_constraintTop_toBottomOf="@+id/product_description" />
         <TextView
             android:id="@+id/rating_count"
             android:layout_width="wrap_content"
@@ -83,13 +83,13 @@
             android:layout_marginBottom="10dp"
             android:gravity="start"
             android:layout_margin="@dimen/padding_items"
-            android:text="150"
+            android:text="@string/_150"
             android:textSize="@dimen/price_size"
             android:textStyle="normal"
             android:maxLength="15"
             android:textColor="@color/gray_color"
             app:layout_constraintStart_toEndOf="@id/rating_bar"
-            app:layout_constraintTop_toBottomOf="@id/product_discription" />
+            app:layout_constraintTop_toBottomOf="@id/product_description" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

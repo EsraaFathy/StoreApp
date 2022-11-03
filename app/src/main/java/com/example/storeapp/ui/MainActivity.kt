@@ -9,6 +9,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        currentActivity = this
     }
      override fun replaceFragment(fragment: Fragment,bundle: Bundle?) {
          if (bundle!=null)
@@ -16,8 +17,8 @@ class MainActivity : BaseActivity() {
 
          val transaction = supportFragmentManager.beginTransaction()
          transaction.replace(R.id.fragment, fragment)
-         transaction.addToBackStack("");
+         transaction.addToBackStack(fragment.javaClass.name)
          transaction.commit()
-
     }
+
 }
