@@ -17,13 +17,13 @@ import com.example.storeapp.data.remote.RepositoryImp
 import com.example.storeapp.databinding.FragmentProductsListBinding
 import com.example.storeapp.model.ProductList
 import androidx.recyclerview.widget.LinearLayoutManager
-
-
-
+import com.example.storeapp.base.BaseActivity
+import com.example.storeapp.base.Utils
 
 
 class ProductsListFragment : BaseFragment(),ItemClick {
     private lateinit var binding: FragmentProductsListBinding
+    private var list: ProductList? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +33,7 @@ class ProductsListFragment : BaseFragment(),ItemClick {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding= FragmentProductsListBinding.inflate(inflater, container, false)
         val repository = RepositoryImp(
             RemoteDataSourceImp(),
@@ -42,11 +42,14 @@ class ProductsListFragment : BaseFragment(),ItemClick {
        val productViewModel = ViewModelProvider(requireActivity(),viewModelFactory)[ProductListViewModel::class.java]
         binding.productsListRv.visibility = View.INVISIBLE
 
+        if (list==null)
         productViewModel.getProductList()
 
         productViewModel.getProducts().observe(viewLifecycleOwner) {
-            if (it != null)
+            if (it != null) {
+                list = it
                 initRecyclerView(it)
+            }
 
         }
         return binding.root
@@ -63,7 +66,12 @@ class ProductsListFragment : BaseFragment(),ItemClick {
     }
 
     override fun onProductClick(product: ProductList.ProductListItem) {
-        Toast.makeText(requireContext(),"",Toast.LENGTH_SHORT).show()
+        val activity = activity as BaseActivity
+        var bundle = Bundle()
+        bundle.putSerializable(Utils.productListItem,product)
+        val fragment = ProductItemFragment()
+        fragment.arguments = bundle
+        activity.replaceFragment(fragment)
     }
 
 }

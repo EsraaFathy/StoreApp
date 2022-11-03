@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/padding_items">
+
+        <ImageView
+            android:id="@+id/itemIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:src="@drawable/online_shopping"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/product_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_to"
+            android:gravity="start"
+            android:padding="@dimen/padding_items"
+            android:text="@string/title"
+            android:textSize="@dimen/title_size"
+            android:textStyle="bold"
+            android:maxLength="15"
+            android:textColor="@color/main_color"
+            app:layout_constraintBottom_toTopOf="@id/product_price"
+            app:layout_constraintEnd_toEndOf="@id/itemIcon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/itemIcon" />
+
+        <TextView
+            android:id="@+id/product_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_to"
+            android:layout_marginBottom="10dp"
+            android:gravity="start"
+            android:padding="@dimen/padding_items"
+            android:text="@string/_10eg"
+            android:textSize="@dimen/price_size"
+            android:textStyle="normal"
+            android:maxLength="15"
+            android:textColor="@color/gray_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/product_title" />
+
+        <TextView
+            android:id="@+id/product_discription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_to"
+            android:layout_marginBottom="10dp"
+            android:gravity="start"
+            android:padding="@dimen/padding_items"
+            android:text="@string/description"
+            android:textSize="@dimen/price_size"
+            android:textStyle="normal"
+            android:maxLength="15"
+            android:textColor="@color/gray_color"
+            app:layout_constraintEnd_toEndOf="@id/itemIcon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/product_price" />
+        <RatingBar
+            android:id="@+id/rating_bar"
+            style="@style/progress_bar_style"
+            android:layout_width="wrap_content"
+            android:progressDrawable="@drawable/ratingbar_full"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/product_discription" />
+        <TextView
+            android:id="@+id/rating_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_to"
+            android:layout_marginBottom="10dp"
+            android:gravity="start"
+            android:layout_margin="@dimen/padding_items"
+            android:text="150"
+            android:textSize="@dimen/price_size"
+            android:textStyle="normal"
+            android:maxLength="15"
+            android:textColor="@color/gray_color"
+            app:layout_constraintStart_toEndOf="@id/rating_bar"
+            app:layout_constraintTop_toBottomOf="@id/product_discription" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
