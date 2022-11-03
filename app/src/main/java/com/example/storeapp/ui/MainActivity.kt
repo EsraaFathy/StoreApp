@@ -11,13 +11,15 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         currentActivity = this
     }
-     override fun replaceFragment(fragment: Fragment,bundle: Bundle?) {
+     override fun replaceFragment(fragment: Fragment,bundle: Bundle?,addToBackStack :Boolean) {
          if (bundle!=null)
          fragment.arguments = bundle
 
          val transaction = supportFragmentManager.beginTransaction()
          transaction.replace(R.id.fragment, fragment)
+         if (addToBackStack)
          transaction.addToBackStack(fragment.javaClass.name)
+
          transaction.commit()
     }
 

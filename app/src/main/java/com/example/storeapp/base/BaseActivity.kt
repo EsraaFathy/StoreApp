@@ -9,7 +9,7 @@ open class BaseActivity : AppCompatActivity() {
     var currentFragment : BaseFragment? = null
     var currentActivity : Activity? =null
 
-    open fun replaceFragment(fragment: Fragment,bundle: Bundle? =null) {
+    open fun replaceFragment(fragment: Fragment,bundle: Bundle? =null,addToBackStack :Boolean = true) {
 
     }
 }
