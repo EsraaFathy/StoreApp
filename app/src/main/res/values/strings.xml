@@ -4,4 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title">title</string>
     <string name="_10eg">10EG</string>
+    <string name="eg"> EG</string>
+    <string name="loading">Loading ...</string>
 </resources>

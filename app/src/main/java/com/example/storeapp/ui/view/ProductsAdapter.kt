@@ -2,7 +2,6 @@ package com.example.storeapp.ui.view
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -18,7 +17,7 @@ class ProductsAdapter(var productList: ProductList,val itemClick: ItemClick) : R
                 .load(product.image)
                 .into(binding.itemIcon)
             binding.productTitle.text = product.title
-            binding.productPrice.text = product.price.toString()
+            binding.productPrice.text = "${product.price} ${context.getString(R.string.eg)}"
 
             binding.root.setOnClickListener {
                 itemClick.onProductClick(product)

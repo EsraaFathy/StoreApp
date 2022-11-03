@@ -40,6 +40,7 @@ class ProductsListFragment : BaseFragment(),ItemClick {
         )
         val viewModelFactory = ViewModelFactory(repository)
        val productViewModel = ViewModelProvider(requireActivity(),viewModelFactory)[ProductListViewModel::class.java]
+        binding.productsListRv.visibility = View.INVISIBLE
 
         productViewModel.getProductList()
 
@@ -53,6 +54,9 @@ class ProductsListFragment : BaseFragment(),ItemClick {
 
     private fun initRecyclerView(list: ProductList) {
         binding.productsListRv.apply {
+            binding.shimmerFrameLayout.stopShimmerAnimation()
+            binding.shimmerFrameLayout.visibility = View.GONE
+            binding.productsListRv.visibility = View.VISIBLE
             this.adapter = ProductsAdapter(list,this@ProductsListFragment)
             this.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         }
