@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/StoreApp/app/src/main/res/drawable/ratingbar_full.xml" value="0.163" />
         <entry key="..\:/AndroidStudioProjects/StoreApp/app/src/main/res/layout/activity_main.xml" value="0.16770833333333332" />
         <entry key="..\:/AndroidStudioProjects/StoreApp/app/src/main/res/layout/fragment_base.xml" value="0.1574074074074074" />
+        <entry key="..\:/AndroidStudioProjects/StoreApp/app/src/main/res/layout/fragment_product_item.xml" value="0.16770833333333332" />
+        <entry key="..\:/AndroidStudioProjects/StoreApp/app/src/main/res/layout/fragment_products_list.xml" value="0.1574074074074074" />
+        <entry key="..\:/AndroidStudioProjects/StoreApp/app/src/main/res/layout/product_item.xml" value="0.16770833333333332" />
+        <entry key="..\:/AndroidStudioProjects/StoreApp/app/src/main/res/layout/shimmer_placeholder_layout.xml" value="0.16770833333333332" />
         <entry key="..\:/START/androidTanning/StoreApp/app/src/main/res/layout/activity_main.xml" value="0.21822916666666667" />
-        <entry key="..\:/START/androidTanning/StoreApp/app/src/main/res/layout/fragment_products_list.xml" value="0.21822916666666667" />
-        <entry key="..\:/START/androidTanning/StoreApp/app/src/main/res/layout/product_item.xml" value="0.35545023696682465" />
       </map>
     </option>
   </component>
