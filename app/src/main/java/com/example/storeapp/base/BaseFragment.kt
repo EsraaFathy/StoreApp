@@ -1,4 +1,4 @@
-package com.example.storeapp.ui
+package com.example.storeapp.base
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.storeapp.R
 
-class BaseFragment : Fragment() {
+open class BaseFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
