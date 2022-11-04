@@ -11,6 +11,7 @@ StoreApp is a store application with 2 screen
  * MVVM Design Pattern
  * LiveData
  * data binding
+ * loading using shimmer effect 
  
  - i useed a base single activity and base single fragment every activity or fragment shoud use extends it to can check eny time from ant place what is the current view iam in
  - create one method to add fragment and add check to add it to stack or not
