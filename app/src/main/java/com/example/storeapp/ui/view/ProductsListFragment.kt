@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.storeapp.base.BaseFragment
 import com.example.storeapp.base.ViewModelFactory
@@ -12,6 +13,7 @@ import com.example.storeapp.data.remote.RepositoryImp
 import com.example.storeapp.databinding.FragmentProductsListBinding
 import com.example.storeapp.model.ProductList
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.storeapp.R
 import com.example.storeapp.base.BaseActivity
 import com.example.storeapp.base.Utils
 
@@ -47,6 +49,10 @@ class ProductsListFragment : BaseFragment(),ItemClick {
                 initRecyclerView(it)
             }
 
+        }
+
+        productViewModel.getError().observe(viewLifecycleOwner){
+            Toast.makeText(requireContext(),getString(R.string.an_error_accurate),Toast.LENGTH_SHORT).show()
         }
         return binding.root
     }

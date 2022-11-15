@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">StoreApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title">title</string>
     <string name="_10eg">10EG</string>
     <string name="eg"> EG</string>
-    <string name="loading">Loading ...</string>
+    <string name="loading">Loading …</string>
     <string name="description">Description</string>
     <string name="icon">icon</string>
     <string name="_150">150</string>
+    <string name="an_error_accurate">An error accurate</string>
 </resources>
