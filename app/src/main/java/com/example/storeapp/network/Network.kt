@@ -9,7 +9,8 @@ import java.util.concurrent.TimeUnit
 
 
 object Network {
-    private const val BASE_URL ="https://fakestoreapi.com/"
+    private const val BASE_URL ="https://fake-movie-database-api.herokuapp.com/"
+//    private const val BASE_URL ="https://fakestoreapi.com/"
 
     fun getRetrofit(): Retrofit {
         return Retrofit.Builder()

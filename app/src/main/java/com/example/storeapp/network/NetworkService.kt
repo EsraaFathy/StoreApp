@@ -1,11 +1,14 @@
 package com.example.storeapp.network
 
-import com.example.storeapp.model.ProductList
+
+import okhttp3.ResponseBody
+import retrofit2.Call
 import retrofit2.Response
-import retrofit2.http.GET
+import retrofit2.http.*
 
 interface NetworkService {
-    @GET("products")
-   suspend fun getProductsList(): Response<ProductList>
+    @GET("{path}")
+   suspend fun getProductsList(@Path(value = "path" , encoded = true)  path: String,
+                               @Query("s") query: String): Response<ResponseBody>?
 
 }

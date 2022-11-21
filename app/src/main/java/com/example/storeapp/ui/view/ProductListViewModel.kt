@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.storeapp.data.remote.Repository
+import com.example.storeapp.model.MovieResponse
 import com.example.storeapp.model.ProductList
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
@@ -15,7 +16,7 @@ class ProductListViewModel(private val repository: Repository): ViewModel() {
     fun getProductList() {
         viewModelScope.launch {
             try {
-                val data=  repository.remoteDataSource.fetchCustomersData()
+                val data=  repository.remoteDataSource.fetchData(MovieResponse::class.java)
                 if (data!=null)
                     productsList.postValue(data)
 
