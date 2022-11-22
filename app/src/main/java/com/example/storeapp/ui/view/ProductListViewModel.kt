@@ -1,34 +1,37 @@
 package com.example.storeapp.ui.view
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.storeapp.data.remote.Repository
 import com.example.storeapp.model.MovieResponse
-import com.example.storeapp.model.ProductList
+import com.example.storeapp.useCase.MovieDataUseCase
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
+class ProductListViewModel(private val movieDataUseCase: MovieDataUseCase): ViewModel() {
 
-class ProductListViewModel(private val repository: Repository): ViewModel() {
-    private val productsList : MutableLiveData<ProductList> = MutableLiveData()
-    private val errorHandling : MutableLiveData<String> = MutableLiveData()
-    fun getProductList() {
+
+    private val productsList : MutableLiveData<MovieResponse> = MutableLiveData()
+    private val _errorHandling : MutableLiveData<String> = MutableLiveData()
+    val errorHandling : LiveData<String> = _errorHandling
+
+    fun getProductList() : LiveData<MovieResponse> {
         viewModelScope.launch {
             try {
-                val data=  repository.remoteDataSource.fetchData(MovieResponse::class.java)
-                if (data!=null)
-                    productsList.postValue(data)
+                movieDataUseCase.launch()
+                movieDataUseCase.resultFlow.collect{
+                    productsList.postValue(it)
+                }
 
             } catch (ce: CancellationException) {
                 Log.d("Data",ce.message.toString())
                 throw ce // Needed for coroutine scope cancellation
             } catch (e: Exception) {
-                errorHandling.postValue(e.message)
+                _errorHandling.postValue(e.message)
             }
 
         }
+        return productsList
     }
-    fun getProducts() = productsList
-    fun getError() = errorHandling
 }

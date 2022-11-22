@@ -2,13 +2,21 @@ package com.example.storeapp.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.storeapp.data.remote.Repository
+import com.example.storeapp.dataSource.remote.RemoteDataSourceImp
+import com.example.storeapp.dataSource.RepositoryImp
 import com.example.storeapp.ui.view.ProductListViewModel
+import com.example.storeapp.useCase.MovieDataUseCase
 
-class ViewModelFactory(private val repository: Repository) : ViewModelProvider.Factory {
+@Suppress("UNCHECKED_CAST")
+class ViewModelFactory : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ProductListViewModel::class.java)) {
-            return ProductListViewModel(repository) as T
+            val movieDataUseCase = MovieDataUseCase(
+                RepositoryImp(
+                RemoteDataSourceImp(),
+            )
+            )
+            return ProductListViewModel(movieDataUseCase) as T
         }else {
             throw IllegalArgumentException("ViewModel Not Found")
         }

@@ -20,7 +20,8 @@
                 android:src="@drawable/online_shopping"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/image" />
 
             <TextView
                 android:id="@+id/product_title"
@@ -32,7 +33,6 @@
                 android:text="@string/title"
                 android:textSize="@dimen/title_size"
                 android:textStyle="bold"
-                android:maxLength="15"
                 android:textColor="@color/main_color"
                 app:layout_constraintBottom_toTopOf="@id/product_price"
                 app:layout_constraintEnd_toEndOf="@id/itemIcon"

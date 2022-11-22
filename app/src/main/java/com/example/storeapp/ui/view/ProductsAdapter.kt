@@ -8,18 +8,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.storeapp.R
 import com.example.storeapp.databinding.ProductItemBinding
+import com.example.storeapp.model.MovieResponse
 import com.example.storeapp.model.ProductList
+import com.example.storeapp.model.Search
 
-class ProductsAdapter(private var productList: ProductList, private val itemClick: ItemClick) : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
+class ProductsAdapter(private var productList: MovieResponse, private val itemClick: ItemClick) : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
     class ViewHolder(private val binding: ProductItemBinding, private val context : Context) : RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
-        fun bindData(product : ProductList.ProductListItem, itemClick: ItemClick) {
+        fun bindData(product : Search, itemClick: ItemClick) {
             Glide.with(context)
-                .load(product.image)
+                .load(product.Poster)
                 .into(binding.itemIcon)
-            binding.productTitle.text = product.title
-            binding.productPrice.text = "${product.price} ${context.getString(R.string.eg)}"
+            binding.productTitle.text = product.Title
+            binding.productPrice.text = "${product.Year} ${context.getString(R.string.eg)}"
 
             binding.root.setOnClickListener {
                 itemClick.onProductClick(product)
@@ -37,10 +39,10 @@ class ProductsAdapter(private var productList: ProductList, private val itemClic
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindData(productList[position],itemClick)
+        holder.bindData(productList.Search[position],itemClick)
     }
 
     override fun getItemCount(): Int {
-        return productList.size
+        return productList.Search.size
     }
 }
