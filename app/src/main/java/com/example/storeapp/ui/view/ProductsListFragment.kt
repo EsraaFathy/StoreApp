@@ -58,7 +58,10 @@ class ProductsListFragment : BaseFragment(),ItemClick {
             binding.shimmerFrameLayout.stopShimmerAnimation()
             binding.shimmerFrameLayout.visibility = View.GONE
             binding.productsListRv.visibility = View.VISIBLE
-            this.adapter = ProductsAdapter(list,this@ProductsListFragment)
+            this.adapter = ProductsAdapter(list,this@ProductsListFragment,
+            onClick = { product->
+
+            })
             this.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         }
     }

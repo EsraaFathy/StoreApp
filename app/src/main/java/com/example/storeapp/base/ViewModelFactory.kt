@@ -2,10 +2,10 @@ package com.example.storeapp.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.storeapp.dataSource.remote.RemoteDataSourceImp
-import com.example.storeapp.dataSource.RepositoryImp
+import com.example.storeapp.data.remote.RemoteDataSourceImp
+import com.example.storeapp.data.repo.RepositoryImp
 import com.example.storeapp.ui.view.ProductListViewModel
-import com.example.storeapp.useCase.MovieDataUseCase
+import com.example.storeapp.domain.useCase.MovieDataUseCase
 
 @Suppress("UNCHECKED_CAST")
 class ViewModelFactory : ViewModelProvider.Factory {

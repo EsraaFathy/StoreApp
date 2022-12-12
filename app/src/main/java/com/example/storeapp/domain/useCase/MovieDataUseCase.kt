@@ -1,6 +1,6 @@
-package com.example.storeapp.useCase
+package com.example.storeapp.domain.useCase
 
-import com.example.storeapp.dataSource.Repository
+import com.example.storeapp.domain.repo.Repository
 import com.example.storeapp.model.MovieResponse
 import kotlinx.coroutines.flow.flow
 

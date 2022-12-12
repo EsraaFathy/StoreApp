@@ -12,11 +12,15 @@ import com.example.storeapp.model.MovieResponse
 import com.example.storeapp.model.ProductList
 import com.example.storeapp.model.Search
 
-class ProductsAdapter(private var productList: MovieResponse, private val itemClick: ItemClick) : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
-    class ViewHolder(private val binding: ProductItemBinding, private val context : Context) : RecyclerView.ViewHolder(binding.root) {
+class ProductsAdapter(
+    private var productList: MovieResponse,
+    private val itemClick: ItemClick,
+    private val onClick:(Search)->Unit,
+) : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
+   inner class ViewHolder(private val binding: ProductItemBinding, private val context : Context) : RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
-        fun bindData(product : Search, itemClick: ItemClick) {
+        fun bindData(product : Search) {
             Glide.with(context)
                 .load(product.Poster)
                 .into(binding.itemIcon)
@@ -25,6 +29,7 @@ class ProductsAdapter(private var productList: MovieResponse, private val itemCl
 
             binding.root.setOnClickListener {
                 itemClick.onProductClick(product)
+                onClick(product)
             }
 
         }
@@ -39,7 +44,7 @@ class ProductsAdapter(private var productList: MovieResponse, private val itemCl
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindData(productList.Search[position],itemClick)
+        holder.bindData(productList.Search[position])
     }
 
     override fun getItemCount(): Int {

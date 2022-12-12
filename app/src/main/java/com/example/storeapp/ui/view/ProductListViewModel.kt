@@ -5,11 +5,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.storeapp.base.BaseViewModel
 import com.example.storeapp.model.MovieResponse
-import com.example.storeapp.useCase.MovieDataUseCase
+import com.example.storeapp.domain.useCase.MovieDataUseCase
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
-class ProductListViewModel(private val movieDataUseCase: MovieDataUseCase): ViewModel() {
+class ProductListViewModel(private val movieDataUseCase: MovieDataUseCase): BaseViewModel() {
 
 
     private val productsList : MutableLiveData<MovieResponse> = MutableLiveData()

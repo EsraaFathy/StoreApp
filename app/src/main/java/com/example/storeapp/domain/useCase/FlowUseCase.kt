@@ -1,4 +1,4 @@
-package com.example.storeapp.useCase
+package com.example.storeapp.domain.useCase
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow

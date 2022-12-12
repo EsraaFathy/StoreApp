@@ -1,10 +1,11 @@
-package com.example.storeapp.dataSource.remote
+package com.example.storeapp.data.remote
 
+import com.example.storeapp.base.Response
 import com.example.storeapp.network.Network
 import com.google.gson.Gson
 
 
-class RemoteDataSourceImp :RemoteDataSource {
+class RemoteDataSourceImp : RemoteDataSource {
 
     override suspend fun <T> fetchData(path: String, query: String, ofClass: Class<T>): T? {
 
